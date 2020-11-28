@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Results from './componenets/Pitch';
+import App from './componenets/App';
 import reportWebVitals from './reportWebVitals';
 
 
-ReactDOM.render(<Results />, document.getElementById('root'))
+ReactDOM.render(<App />, document.getElementById('root'))
 
 
 // If you want to start measuring performance in your app, pass a function
