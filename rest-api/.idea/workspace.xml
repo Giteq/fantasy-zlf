@@ -3,10 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="1fdfa648-a994-4281-9e71-5daaebeb0b7f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../fantasy-frontend/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/../fantasy-frontend/.eslintcache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fantasy-frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../fantasy-frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fantasy-frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../fantasy-frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fantasy-frontend/src/componenets/Pitch.js" beforeDir="false" afterPath="$PROJECT_DIR$/../fantasy-frontend/src/componenets/Pitch.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fantasy-frontend/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../fantasy-frontend/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fantasy-frontend/src/Common.js" beforeDir="false" afterPath="$PROJECT_DIR$/../fantasy-frontend/src/Common.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fantasy-frontend/src/_helpers/auth-header.js" beforeDir="false" afterPath="$PROJECT_DIR$/../fantasy-frontend/src/_helpers/auth-header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fantasy-frontend/src/_services/user.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/../fantasy-frontend/src/_services/user.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fantasy/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/fantasy/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fantasy/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/fantasy/users/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
