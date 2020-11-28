@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import { authHeader } from './_helpers/auth-header';
 
 export default class RestApiMgr extends Component {
         
@@ -10,7 +11,11 @@ export default class RestApiMgr extends Component {
       }
 
     componentDidMount() {
-        fetch(this.state.apiEndpoint)
+      const requestOptions = {
+        method: 'GET',
+        headers: authHeader()
+    };
+        fetch(this.state.apiEndpoint, requestOptions)
           .then((response) => response.json())
           .then((data) => this.setState({results: data["results"]}));
     }
