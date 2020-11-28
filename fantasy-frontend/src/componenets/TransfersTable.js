@@ -1,6 +1,6 @@
 import React from "react";
 import RestApiMgr from '../Common'
-import './ResultsTable.css'
+import '../styles/ResultsTable.css'
 import { Component } from 'react';
 import {Link} from "react-router-dom";
 

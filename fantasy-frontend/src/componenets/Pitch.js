@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import styles from './Pitch.css'
+import styles from '../styles/Pitch.css'
 import PitchImg from './images/futsalfield.jpg'
 import ShirtImg from './images/koszulka.jpg'
-import './ResultsTable.css'
+import '../styles/ResultsTable.css'
 
 class Player extends Component {
 
