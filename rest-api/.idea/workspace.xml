@@ -4,11 +4,18 @@
     <list default="true" id="1fdfa648-a994-4281-9e71-5daaebeb0b7f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../fantasy-frontend/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/../fantasy-frontend/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../fantasy-frontend/src/Common.js" beforeDir="false" afterPath="$PROJECT_DIR$/../fantasy-frontend/src/Common.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fantasy-frontend/src/LoginPage/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/../fantasy-frontend/src/LoginPage/Login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../fantasy-frontend/src/_helpers/auth-header.js" beforeDir="false" afterPath="$PROJECT_DIR$/../fantasy-frontend/src/_helpers/auth-header.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../fantasy-frontend/src/_services/user.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/../fantasy-frontend/src/_services/user.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fantasy-frontend/src/componenets/Pitch.js" beforeDir="false" afterPath="$PROJECT_DIR$/../fantasy-frontend/src/componenets/Pitch.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fantasy/middleware.py" beforeDir="false" afterPath="$PROJECT_DIR$/fantasy/middleware.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fantasy/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/fantasy/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fantasy/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/fantasy/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fantasy/users/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fantasy/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/fantasy/users/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fantasy/users/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/fantasy/users/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fantasy/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/fantasy/users/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />

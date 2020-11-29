@@ -13,7 +13,6 @@ class AllUsers extends RestApiMgr {
     }
 
     render() {
-        console.log('This is your data', this.state.results);
         return (
             this.state.results.map((user) => 
             <tr>

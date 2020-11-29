@@ -10,10 +10,10 @@ export default class RestApiMgr extends Component {
         };
       }
 
-    componentDidMount() {
+      componentDidMount() {
       const requestOptions = {
-        method: 'GET',
-        headers: authHeader()
+        method: "GET",
+        headers: authHeader(),
     };
         fetch(this.state.apiEndpoint, requestOptions)
           .then((response) => response.json())

@@ -37,16 +37,25 @@ class CustomUserManager(BaseUserManager):
         return self.create_user(email, password, **extra_fields)
 
 
+class Position(models.Model):
+    position = models.CharField(max_length=MAX_LENGTH)
+
+    def __str__(self):
+        return self.position
+
+
 class Player(models.Model):
     name = models.CharField(max_length=MAX_LENGTH, primary_key=True)
     total_points = models.IntegerField(default=0)
     actual_points = models.IntegerField(default=0)
-    position = models.CharField(max_length=MAX_LENGTH)
+    position = models.ForeignKey(Position, db_column="position", on_delete=models.CASCADE)
+    price = models.FloatField()
 
 
 class User(AbstractUser):
     total_points = models.IntegerField(default=0)
     objects = CustomUserManager()
+    players = models.ManyToManyField(Player)
     # USERNAME_FIELD = 'email'
     # REQUIRED_FIELDS = ['username']
 

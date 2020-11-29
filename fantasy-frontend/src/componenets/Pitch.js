@@ -3,6 +3,9 @@ import styles from '../styles/Pitch.css'
 import PitchImg from './images/futsalfield.jpg'
 import ShirtImg from './images/koszulka.jpg'
 import '../styles/ResultsTable.css'
+import RestApiMgr from '../Common'
+import { authHeader } from '../_helpers/auth-header';
+
 
 class Player extends Component {
 
@@ -25,32 +28,25 @@ class Player extends Component {
       }
     }
   }
-  
-  getName() {
-    return 'Żiba'
-  }
-
-  getScore() {
-    return 5
-  }
 
    render() {
      this.state.divPlayer.left = this.props.left;
      this.state.divPlayer.top = this.props.top;
        return (
         <div style={this.state.divPlayer}>
-            <span class={styles.caption}>{this.getName()}</span>
+            <span class={styles.caption}>{this.props.name}</span>
            <img src={ ShirtImg } style={this.state.shirtStyle}></img>
-           <span class={styles.caption}>{this.getScore()}</span>
+           <span class={styles.caption}>{this.props.score}</span>
         </div>
        )
    }
 }
 
-export class Pitch extends Component {
+export class Pitch extends RestApiMgr {
   
   constructor(props) {
     super(props);
+    let user = JSON.parse(localStorage.getItem('user'));
     this.state = {
       divPitch: {
         position: 'relative',
@@ -62,36 +58,46 @@ export class Pitch extends Component {
         height: "100%",
         backgroundImage:  `url(${PitchImg})`
       },
+      apiEndpoint: 'http://localhost:8000/users/' + user.username + '/info/',
+      isLoading: true,
+      renderedPositions: []
     }
   }
 
-  renderPlayer(position) {
-    if (position === 'lo') {
-      var left = "30%";
-      var top = "-160%";
+  renderPlayer(player) {
+    if (player.position.position === 'defender') {
+      console.log(this.state.renderedPositions.indexOf("defender"));
+      if (this.state.renderedPositions.indexOf("defender") > -1){
+        var left = "100%";
+        var top = "-160%";
+      }
+      else{
+        var left = "30%";
+        var top = "-160%";
+      }
     }
-    if (position === 'ro') {
-      var left = "100%";
-      var top = "-160%";
-    }
-    if (position === 'gk') {
+    if (player.position.position === 'goalkeeper') {
       var left = "65%";
       var top = "-220%";
     }
-    if (position === 'ln') {
-      var left = "30%";
-      var top = "-80%";
+    if (player.position.position === 'forward') {
+      if (this.state.renderedPositions.indexOf("forward") > -1){
+        var left = "30%";
+        var top = "-80%";
+      }
+      else{
+        var left = "100%";
+        var top = "-80%";
+      }
+
     }
-    if (position === 'pn') {
-      var left = "100%";
-      var top = "-80%";
-    }
-    if (position === 'bench') {
+    if (player.position.position === 'bench') {
       var left = "65%";
       var top = "0%";
     }
+    this.state.renderedPositions.push(player.position.position)
 
-    return (<Player left={left} top={top}></Player>);
+    return (<Player left={left} top={top} name={player.name} score={player.actual_points}></Player>);
   }
 
   getTotalScore() {
@@ -102,24 +108,38 @@ export class Pitch extends Component {
 
   }
 
+  componentDidMount() {
+    const requestOptions = {
+      method: "GET",
+      headers: authHeader(),
+  };
+      fetch(this.state.apiEndpoint, requestOptions)
+        .then((response) => response.json())
+        .then((data) => this.setState({results: data["players"], isLoading: false}))
+  }
+
    render() {
-  var tmp = {
+    const { isLoading } = this.state;
+    if (isLoading){
+      return <div>Loading...</div>;
+    }
+  
+    var tmp = {
     position: 'absolute',
     height: '200px',
     width: '150px',
   }
-
        return (
         <div style={this.state.divPitch}>
           Wynik: {this.getTotalScore()}
            <img src={ PitchImg } style={this.state.pitchStyle}></img>
            <div style={tmp}>
-              {this.renderPlayer('lo')}
-              {this.renderPlayer('ro')}
-              {this.renderPlayer('gk')}
-              {this.renderPlayer('pn')}
-              {this.renderPlayer('ln')}
-              {this.renderPlayer('bench')}
+           {
+              this.state.results.map((player) => 
+              <tr>
+                {this.renderPlayer(player)}
+              </tr>)
+              }
             </div>
         </div>
        )
