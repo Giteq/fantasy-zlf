@@ -33,7 +33,7 @@ const routes = [
   // A special wrapper for <Route> that knows how to
   // handle "sub"-routes by passing them in a `routes`
   // prop to the component it renders.
-  function RouteWithSubRoutes(route) {
+  export function RouteWithSubRoutes(route) {
     return (
       <Route
         path={route.path}
@@ -50,9 +50,9 @@ class HomePage extends React.Component {
         return (
             <div className="col-md-6 col-md-offset-3">
                 <Router>
-                    <div class="container">
-                    <nav class="menu">
-                    <ul class="main-menu">
+                    <div className="container">
+                    <nav className="menu">
+                    <ul className="main-menu">
                         <li>
                             <Link to="/pitch" >Wyniki</Link>
                         </li>
@@ -71,7 +71,7 @@ class HomePage extends React.Component {
                         ))}
                         </Switch>
 
-                        <div class="animation start-home"></div>
+                        <div className="animation start-home"></div>
                     </nav>
                     </div>
                 </Router>
