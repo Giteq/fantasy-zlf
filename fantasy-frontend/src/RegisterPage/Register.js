@@ -39,6 +39,7 @@ class RegisterPage extends React.Component {
         }
 
         this.setState({ loading: true });
+        userService.register(username, password);
         userService.login(username, password)
             .then(
                 user => {

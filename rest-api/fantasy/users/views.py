@@ -6,6 +6,7 @@ from rest_framework.decorators import action
 
 from fantasy.users.models import Player, User, Position
 from fantasy.users.serializers import UserSerializer, PlayerSerializer, PositionSerializer
+from rest_framework import parsers
 
 
 class PositionView(viewsets.ModelViewSet):
@@ -38,6 +39,7 @@ class UserViewSet(viewsets.ModelViewSet):
     #permission_classes = (IsAuthenticated,)
     queryset = User.objects.all().order_by('-date_joined')
     serializer_class = UserSerializer
+    parser_classes = (parsers.JSONParser,)
 
     @action(detail=True)
     def info(self, request, *args, **kwargs):

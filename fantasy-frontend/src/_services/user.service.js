@@ -69,16 +69,19 @@ function register(username, password) {
         body: JSON.stringify({ username, password })
     };
 
-    return fetch(`http://localhost:8000/api/token/`, requestOptions)
+    console.log(requestOptions.body)
+
+    return fetch(`http://localhost:8000/users/`, requestOptions)
         .then(handleResponse)
         .then(user => {
             // login successful if there's a user in the response
+            console.log(user);
             if (user) {
                 // store user details and basic auth credentials in local storage 
                 // to keep user logged in between page refreshes
-                user.authdata = window.btoa(username + ':' + password);
-                user.username = username
-                localStorage.setItem('user', JSON.stringify(user));
+                // user.authdata = window.btoa(username + ':' + password);
+                // user.username = username
+                // localStorage.setItem('user', JSON.stringify(user));
             }
 
             return user;

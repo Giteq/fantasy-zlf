@@ -20,7 +20,7 @@ class PlayerSerializer(serializers.ModelSerializer):
 
 
 class UserSerializer(serializers.ModelSerializer):
-    players = PlayerSerializer(many=True)
+    players = PlayerSerializer(many=True, required=False)
 
     class Meta:
         model = User

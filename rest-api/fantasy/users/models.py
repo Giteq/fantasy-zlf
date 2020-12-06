@@ -55,7 +55,7 @@ class Player(models.Model):
 class User(AbstractUser):
     total_points = models.IntegerField(default=0)
     objects = CustomUserManager()
-    players = models.ManyToManyField(Player)
+    players = models.ManyToManyField(Player, blank=True, default=[])
     # USERNAME_FIELD = 'email'
     # REQUIRED_FIELDS = ['username']
 
