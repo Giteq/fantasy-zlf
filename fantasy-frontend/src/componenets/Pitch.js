@@ -1,46 +1,9 @@
 import React, { Component } from 'react';
-import styles from '../styles/Pitch.css'
 import PitchImg from './images/futsalfield.jpg'
-import ShirtImg from './images/koszulka.jpg'
 import '../styles/ResultsTable.css'
 import RestApiMgr from '../Common'
 import { authHeader } from '../_helpers/auth-header';
-
-
-class Player extends Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      shirtStyle: {
-        width: "100%",
-        height: "10%",
-        backgroundImage:  `url(${ShirtImg})`
-      },
-      divPlayer: {
-        position: 'absolute',
-        width:'55px',
-        height:'400px',
-        textAlign: 'center'
-      },
-      caption: {
-        display: 'block'
-      }
-    }
-  }
-
-   render() {
-     this.state.divPlayer.left = this.props.left;
-     this.state.divPlayer.top = this.props.top;
-       return (
-        <div style={this.state.divPlayer}>
-            <span class={styles.caption}>{this.props.name}</span>
-           <img src={ ShirtImg } style={this.state.shirtStyle}></img>
-           <span class={styles.caption}>{this.props.score}</span>
-        </div>
-       )
-   }
-}
+import { Player } from '../Common'
 
 export class Pitch extends RestApiMgr {
   

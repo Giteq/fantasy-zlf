@@ -9,6 +9,7 @@ import { PrivateRoute } from '../_components';
 import { HomePage } from '../HomePage';
 import { LoginPage } from '../LoginPage/Login';
 import { RegisterPage } from '../RegisterPage/Register'
+import {SelectTeam} from '../componenets/SelectTeam'
 
 
 export default class App extends React.Component {
@@ -22,6 +23,7 @@ export default class App extends React.Component {
                               <PrivateRoute exact path="/" component={HomePage} />
                               <Route path="/login" component={LoginPage} />
                               <Route path="/register" component={RegisterPage} />
+                              <Route path="/select_team" component={SelectTeam}></Route>
                           </div>
                       </Router>
                   </div>

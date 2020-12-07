@@ -39,11 +39,10 @@ class RegisterPage extends React.Component {
         }
 
         this.setState({ loading: true });
-        userService.register(username, password);
-        userService.login(username, password)
+        userService.register(username, password)
             .then(
                 user => {
-                    const { from } = this.props.location.state || { from: { pathname: "/" } };
+                    const { from } = this.props.location.state || { from: { pathname: "/select_team" } };
                     this.props.history.push(from);
                 },
                 error => this.setState({ error, loading: false })
