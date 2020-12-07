@@ -5,26 +5,14 @@ import RestApiMgr from '../Common'
 import { authHeader } from '../_helpers/auth-header';
 import { Player } from '../Common'
 
-export class Pitch extends RestApiMgr {
+class BasePitch extends React.Component {
+
+  getTotalScore() {
+    return 25
+  }
   
-  constructor(props) {
-    super(props);
-    let user = JSON.parse(localStorage.getItem('user'));
-    this.state = {
-      divPitch: {
-        position: 'relative',
-        height: '450px',
-        width: '250px',
-      },
-      pitchStyle: {
-        width: "100%",
-        height: "100%",
-        backgroundImage:  `url(${PitchImg})`
-      },
-      apiEndpoint: 'http://localhost:8000/users/' + user.username + '/info/',
-      isLoading: true,
-      renderedPositions: []
-    }
+  getPlayers() {
+
   }
 
   renderPlayer(player) {
@@ -63,25 +51,7 @@ export class Pitch extends RestApiMgr {
     return (<Player left={left} top={top} name={player.name} score={player.actual_points}></Player>);
   }
 
-  getTotalScore() {
-    return 25
-  }
-  
-  getPlayers() {
-
-  }
-
-  componentDidMount() {
-    const requestOptions = {
-      method: "GET",
-      headers: authHeader(),
-  };
-      fetch(this.state.apiEndpoint, requestOptions)
-        .then((response) => response.json())
-        .then((data) => this.setState({results: data["players"], isLoading: false}))
-  }
-
-   render() {
+  render() {
     const { isLoading } = this.state;
     if (isLoading){
       return <div>Loading...</div>;
@@ -98,7 +68,7 @@ export class Pitch extends RestApiMgr {
            <img src={ PitchImg } style={this.state.pitchStyle}></img>
            <div style={tmp}>
            {
-              this.state.results.map((player) => 
+              this.getPlayers().map((player) => 
               <tr>
                 {this.renderPlayer(player)}
               </tr>)
@@ -107,6 +77,43 @@ export class Pitch extends RestApiMgr {
         </div>
        )
    }
+
+}
+
+export class Pitch extends BasePitch {
+  
+  constructor(props) {
+    super(props);
+    let user = JSON.parse(localStorage.getItem('user'));
+    this.state = {
+      divPitch: {
+        position: 'relative',
+        height: '450px',
+        width: '250px',
+      },
+      pitchStyle: {
+        width: "100%",
+        height: "100%",
+        backgroundImage:  `url(${PitchImg})`
+      },
+      apiEndpoint: 'http://localhost:8000/users/' + user.username + '/info/',
+      isLoading: true,
+      renderedPositions: []
+    }
+  }
+
+  componentDidMount() {
+    const requestOptions = {
+      method: "GET",
+      headers: authHeader(),
+  };
+      fetch(this.state.apiEndpoint, requestOptions)
+        .then((response) => response.json())
+        .then((data) => this.setState({results: data["players"], isLoading: false}))
+  }
+  getPlayers = () => {
+      return this.state.results;
+  }
 
 }
 
