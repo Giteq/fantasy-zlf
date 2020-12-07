@@ -7,7 +7,7 @@ import {
   } from "react-router-dom";
   import ResultsTable from '../componenets/ResultsTable';
   import {TransfersTable, TransferSinglePlayer} from '../componenets/TransfersTable'
-  import {Pitch} from '../componenets/Pitch'
+  import {ResultsPitch} from '../componenets/Pitch'
 
 
 const routes = [
@@ -17,7 +17,7 @@ const routes = [
 },
 {
     path: "/pitch",
-    component: Pitch
+    component: ResultsPitch
 },
 {
     path: "/transfers",

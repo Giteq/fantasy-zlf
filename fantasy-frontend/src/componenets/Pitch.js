@@ -80,7 +80,7 @@ class BasePitch extends React.Component {
 
 }
 
-export class Pitch extends BasePitch {
+export class ResultsPitch extends BasePitch {
   
   constructor(props) {
     super(props);
@@ -116,6 +116,33 @@ export class Pitch extends BasePitch {
   }
 
 }
+
+export class SelectPitch extends BasePitch {
+  constructor(props){
+    super(props)
+    this.state = {
+      divPitch: {
+        position: 'relative',
+        height: '550px',
+        width: '250px',
+        top: 150
+      },
+      pitchStyle: {
+        width: "100%",
+        height: "100%",
+        backgroundImage:  `url(${PitchImg})`
+      },
+      renderedPositions: []
+    }
+  }
+
+  getPlayers = () => {
+    return [];
+  }
+
+}
+
+
 
 var divParent = {
   'height': '100vh', /* Magic here */

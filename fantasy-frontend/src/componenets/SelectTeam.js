@@ -2,6 +2,7 @@ import React from 'react';
 import RestApiMgr from '../Common'
 import { authHeader } from '../_helpers/auth-header';
 import { Player } from '../Common'
+import {SelectPitch} from '../componenets/Pitch'
 
 
 class SelectablePlayer extends Player {
@@ -55,6 +56,7 @@ export class SelectTeam extends RestApiMgr {
                         (player, i) => <SelectablePlayer top={10} left={i*200} name={player.name} score={player.actual_points}></SelectablePlayer>
                   )
                 }
+                <SelectPitch></SelectPitch>
             </div>
         );
     }
